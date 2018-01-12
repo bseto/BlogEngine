@@ -1,0 +1,9 @@
+= BlogEngine
+
+This will be a blog engine powered by Golang as a backend, and Ember.js as the front end client.
+
+== Structure
+
+=== Golang
+
+For the backend, we will try to follow: Ben Johnson's structure for growth http://go-talks.appspot.com/github.com/gophercon/2016-talks/BenJohnson-StructuringApplicationsForGrowth/main.slide#1[here]
