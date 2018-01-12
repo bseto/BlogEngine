@@ -6,4 +6,9 @@ This will be a blog engine powered by Golang as a backend, and Ember.js as the f
 
 === Golang
 
-For the backend, we will try to follow: Ben Johnson's structure for growth http://go-talks.appspot.com/github.com/gophercon/2016-talks/BenJohnson-StructuringApplicationsForGrowth/main.slide#1[here]
+The golang backend will be a simple go server that manages `/api/` routes that the ember.js front end can communicate with.
+The golang backend will also serve the ember.js through the `/` that will route to a directory of .html files
+
+=== Ember
+
+TBD
