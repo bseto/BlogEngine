@@ -1,0 +1,28 @@
+{{define "layout"}}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>{{template "title" .}}</title>
+        <link href="/static/stylesheets/default.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+        <meta name="viewport" content="initial-scale=1.0">
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <ul class=menubar>
+            <li><a {{if eq .ActiveTab "Home"}} class="active" {{end}} href="/home">Home</a></li>
+            <li><a {{if eq .ActiveTab "Articles"}} class="active" {{end}} href="/articles">Articles</a></li>
+            <li><a {{if eq .ActiveTab "Playground"}} class="active" {{end}} href="/playground">Playground</a></li>
+            <li><a href="https://www.github.com/bseto" style="right: 0; position: absolute;">GitHub</a></li>
+        </ul>
+
+        <div class="main">
+            {{template "body" .}}
+        </div>
+    </body>
+
+</html>
+{{end}}
+
