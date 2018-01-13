@@ -73,6 +73,27 @@ ul.menubar li a:hover:not(.active) {
     color: white;
 }
 
+/*-------------------*/
+/*Articles*/
+/*-------------------*/
+
+/*
+ *Horizontal Rule found from:
+ *https://gist.github.com/cptx032/0f7fe530a5df977d6410c1ea1bf85ecf
+ */
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #333;
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,hsla(0,0%,0%,0)), color-stop(50%,hsla(0,0%,0%,.75)), color-stop(100%,hsla(0,0%,0%,0)));
+    background: -webkit-linear-gradient(left, hsla(0,0%,0%,0) 0%, hsla(0,0%,100%,.75) 50%, hsla(0,0%,0%,0) 100%);
+    background:    -moz-linear-gradient(left, hsla(0,0%,0%,0) 0%, hsla(0,0%,100%,.75) 50%, hsla(0,0%,0%,0) 100%);
+    background:     -ms-linear-gradient(left, hsla(0,0%,0%,0) 0%, hsla(0,0%,100%,.75) 50%, hsla(0,0%,0%,0) 100%);
+    background:      -o-linear-gradient(left, hsla(0,0%,0%,0) 0%, hsla(0,0%,100%,.75) 50%, hsla(0,0%,0%,0) 100%);
+    background:         linear-gradient(left, hsla(0,0%,0%,0) 0%, hsla(0,0%,100%,.75) 50%, hsla(0,0%,0%,0) 100%);
+}
+
 /*[>-------------------<]*/
 /*[>Tables<]*/
 /*[>-------------------<]*/

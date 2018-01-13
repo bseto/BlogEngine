@@ -12,24 +12,32 @@ h1.small{
 }
 
 p.title {
+    font-size: 150%;
     margin-top: 0px;
-    padding-top: 0px;
+    margin-bottom: 0px;
+    /*padding-top: 0px;*/
+    /*padding-bottom: 0px;*/
+    padding: 0em;
 }
 
 p {
-    font-size: 150%;
+    font-size: 120%;
     text-align: center;
     padding: 5em 5em;
     position: relative;
+    margin-top: 0px;
+    padding-top: 0px;
 }
 .byron_parallax {
     position:relative;
     background-image: url('/static/images/myself.jpg');
-    height: 80em;
+    height: 50em;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    display: flex;
+    flex-direction: column;
 }
 .solarcar_parallax {
     position:relative;
@@ -39,6 +47,8 @@ p {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    display: flex;
+    flex-direction: column;
 }
 
 .linux_parallax {
@@ -49,6 +59,8 @@ p {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    display: flex;
+    flex-direction: column;
 }
 
 .parallax_overlay {
@@ -59,6 +71,7 @@ p {
     right:0;
     bottom:0;
     color:white;
+    flex: 1;
 }
 .parallax_dark_overlay {
     background: rgba(0, 0, 0, 0.6);
@@ -68,6 +81,7 @@ p {
     right:0;
     bottom:0;
     color:white;
+    flex: 1;
 }
 .parallax_shade_overlay {
     background: rgba(50, 0, 0, 0.5);
@@ -77,6 +91,7 @@ p {
     right:0;
     bottom:0;
     color:white;
+    flex: 1;
 }
 
 tr:nth-child(even){
