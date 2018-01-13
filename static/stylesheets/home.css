@@ -1,6 +1,6 @@
 h1 {
     padding: 1em 1em;
-    font-size: 850%;
+    font-size: 650%;
     text-align: center;
 
     margin-top: 0em;
@@ -14,7 +14,6 @@ h1.small{
 p.title {
     margin-top: 0px;
     padding-top: 0px;
-
 }
 
 p {
@@ -23,10 +22,19 @@ p {
     padding: 5em 5em;
     position: relative;
 }
+.byron_parallax {
+    position:relative;
+    background-image: url('/static/images/myself.jpg');
+    height: 80em;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 .solarcar_parallax {
     position:relative;
     background-image: url('/static/images/solarcar.jpg');
-    height: 80em;
+    height: 40em;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -36,7 +44,7 @@ p {
 .linux_parallax {
     position:relative;
     background-image: url('/static/images/scientific_linux.jpg');
-    height: 80em;
+    height: 40em;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
