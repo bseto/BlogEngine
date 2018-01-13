@@ -21,22 +21,22 @@ func ListArticles() {
 
 }
 
-func Articles(w http.ResponseWriter, req *http.Request) {
-	page := GeneralPage{ActiveTab: "Articles"}
-	logger.Log("Inside List Articles")
-	RenderTemplate(w, "home.html", page)
-}
-
 func Home(w http.ResponseWriter, req *http.Request) {
 	page := GeneralPage{ActiveTab: "Home"}
 	logger.Log("Inside Home")
 	RenderTemplate(w, "home.html", page)
 }
 
+func Articles(w http.ResponseWriter, req *http.Request) {
+	page := GeneralPage{ActiveTab: "Articles"}
+	logger.Log("Inside List Articles")
+	RenderTemplate(w, "articles.html", page)
+}
+
 func Playground(w http.ResponseWriter, req *http.Request) {
 	page := GeneralPage{ActiveTab: "Playground"}
 	logger.Log("Inside Playground")
-	RenderTemplate(w, "home.html", page)
+	RenderTemplate(w, "playground.html", page)
 }
 
 func RenderTemplate(w http.ResponseWriter, tmplName string, p interface{}) {
@@ -65,4 +65,5 @@ func main() {
 
 	logger.Log("Listening on 8000")
 	http.ListenAndServe(":8000", nil)
+
 }

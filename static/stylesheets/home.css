@@ -23,126 +23,26 @@ p {
     padding: 5em 5em;
     position: relative;
 }
-
-.iu_parallax1 {
+.solarcar_parallax {
     position:relative;
-    background-image: url('images/iu_parallax1.jpg');
-    height: 40em;
+    background-image: url('/static/images/solarcar.jpg');
+    height: 80em;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.iu_parallax2 {
+.linux_parallax {
     position:relative;
-    background-image: url('images/iu_parallax2.jpg');
-    height: 30em;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.iu_parallax3 {
-    position:relative;
-    background-image: url('images/iu_parallax3.jpg');
-    height: 40em;
+    background-image: url('/static/images/scientific_linux.jpg');
+    height: 80em;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.iu_parallax4 {
-    position:relative;
-    background-image: url('images/iu_parallax1.jpg');
-    height: 40em;
-    /*background-attachment: fixed;*/
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.jp_parallax1 {
-    position:relative;
-    background-image: url('images/jp_parallax1.jpg');
-    height: 40em;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.jp_parallax2 {
-    position:relative;
-    background-image: url('images/jp_parallax2.jpg');
-    height: 40em;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.jp_parallax3 {
-    position:relative;
-    background-image: url('images/jp_parallax3.jpg');
-    height: 30em;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.jp_parallax4 {
-    position:relative;
-    background-image: url('images/jp_parallax4.jpg');
-    height: 41em;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.sj_parallax1 {
-    position:relative;
-    background-image: url('images/sj_parallax1.jpg');
-    height: 41em;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.sj_parallax2 {
-    position:relative;
-    background-image: url('images/sj_parallax2.jpg');
-    height: 40em;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.sj_parallax3 {
-    position:relative;
-    background-image: url('images/sj_parallax3.jpg');
-    height: 30em;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.sj_parallax4 {
-    position:relative;
-    background-image: url('images/sj_parallax4.gif');
-    height: 50em;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.kpop_parallax1 {
-    position:relative;
-    background-image: url('images/kpop.jpg');
-    height: 50em;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
 .parallax_overlay {
     background: rgba(0, 0, 0, 0.4);
     position: absolute;
