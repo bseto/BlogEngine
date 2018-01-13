@@ -13,7 +13,8 @@
 }
 
 :root {
-    --color-menubar: #33363B;
+    /*--color-menubar: #33363B;*/
+    --color-menubar: rgba(51,54,59,0.9);
     --color-menubar-highlight: #FFFFFF;
     --color-menubar-highlight-txt: #000000;
     --color-menubar-hover: #0A0E11;
@@ -31,7 +32,7 @@ html, body {
 }
 .main {
     padding: 0px;
-    margin-top: 50px;
+    margin-top: 0px;
     height: 100%;
 }
 
