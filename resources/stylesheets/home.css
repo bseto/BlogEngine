@@ -30,7 +30,7 @@ p {
 }
 .byron_parallax {
     position:relative;
-    background-image: url('/static/images/myself.jpg');
+    background-image: url('/resources/images/myself.jpg');
     height: 50em;
     background-attachment: fixed;
     background-position: center;
@@ -41,7 +41,7 @@ p {
 }
 .solarcar_parallax {
     position:relative;
-    background-image: url('/static/images/solarcar.jpg');
+    background-image: url('/resources/images/solarcar.jpg');
     height: 40em;
     background-attachment: fixed;
     background-position: center;
@@ -53,7 +53,7 @@ p {
 
 .linux_parallax {
     position:relative;
-    background-image: url('/static/images/scientific_linux.jpg');
+    background-image: url('/resources/images/scientific_linux.jpg');
     height: 40em;
     background-attachment: fixed;
     background-position: center;

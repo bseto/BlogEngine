@@ -55,9 +55,9 @@ func RenderTemplate(w http.ResponseWriter, tmplName string, p interface{}) {
 func main() {
 	logger.Log("Starting Server")
 
-	//This is required to serve the css files, or anything we have in /static
-	fs := http.FileServer(http.Dir("./static"))
-	http.Handle("/static/", http.StripPrefix("/static/", fs))
+	//This is required to serve the css files, or anything we have in /resources
+	fs := http.FileServer(http.Dir("./resources"))
+	http.Handle("/resources/", http.StripPrefix("/resources/", fs))
 	http.HandleFunc("/articles", Articles)
 	http.HandleFunc("/playground", Playground)
 	http.HandleFunc("/home", Home)
