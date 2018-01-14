@@ -17,10 +17,6 @@ type Article struct {
 	CreateDate string
 }
 
-func ListArticles() {
-
-}
-
 func Home(w http.ResponseWriter, req *http.Request) {
 	page := GeneralPage{ActiveTab: "Home"}
 	logger.Log("Inside Home")
@@ -58,6 +54,9 @@ func main() {
 	//This is required to serve the css files, or anything we have in /resources
 	fs := http.FileServer(http.Dir("./resources"))
 	http.Handle("/resources/", http.StripPrefix("/resources/", fs))
+
+	http.HandleFunc("/api/list_articles", ListArticles)
+
 	http.HandleFunc("/articles", Articles)
 	http.HandleFunc("/playground", Playground)
 	http.HandleFunc("/home", Home)
