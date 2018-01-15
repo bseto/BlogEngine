@@ -8,8 +8,7 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link href="/resources/stylesheets/default.css" rel="stylesheet">
-        <link href="/resources/stylesheets/glyphicons.css" rel="stylesheet" />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <meta name="viewport" content="initial-scale=1.0">
         {{template "head" .}}
@@ -35,10 +34,9 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Articles</a></li>
-                <li><a href="#">Contact</a></li>
+                <li{{if eq .ActiveTab "Home"}} class="active" {{end}}> <a href="/home">Home</a></li>
+                <li{{if eq .ActiveTab "Articles"}} class="active" {{end}}> <a href="/articles">Articles</a></li>
+                <li{{if eq .ActiveTab "Playground"}} class="active" {{end}}> <a href="/playground">Playground</a></li>
               </ul>
               <ul class="nav navbar-nav navbar-right">
                 <li><a href="#"><span class="icon-g-github icon-g-white"></span>Login</a></li>
