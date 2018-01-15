@@ -18,6 +18,12 @@ type Article struct {
 	CreateDate string `json:"create_date"`
 }
 
+type YMLStruct struct {
+	Title      string `yaml:"title"`
+	Path       string `yaml:"path"`
+	CreateDate string `yaml:"create_date"`
+}
+
 func Home(w http.ResponseWriter, req *http.Request) {
 	page := GeneralPage{ActiveTab: "Home"}
 	logger.Log("Inside Home")
