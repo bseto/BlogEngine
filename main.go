@@ -12,9 +12,9 @@ type GeneralPage struct {
 }
 
 type Article struct {
-	Title      string
-	Body       string
-	CreateDate string
+	Title      string `json:"title"`
+	Body       string `json:"body, omitempty"`
+	CreateDate string `json:"create_date"`
 }
 
 func Home(w http.ResponseWriter, req *http.Request) {

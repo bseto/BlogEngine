@@ -8,7 +8,10 @@ import (
 
 func ListArticles(w http.ResponseWriter, req *http.Request) {
 	logger.Log("List Articles was Called")
-	article := Article{"TestTitle", "Some Fake Lorem Ipsum", "2018-01-14"}
+	article := []Article{
+		Article{Title: "TestTitle1", CreateDate: "2018-01-14"},
+		Article{Title: "TestTitle2", CreateDate: "2018-01-15"},
+	}
 	json, err := json.Marshal(article)
 	if err != nil {
 		logger.Error(err)

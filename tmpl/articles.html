@@ -1,9 +1,9 @@
 {{define "title"}}Articles{{end}}
 
 {{define "head"}} 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link href="/resources/stylesheets/articles.css" rel="stylesheet">
     <script src="/resources/js/articles.js" type="text/javascript"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 {{end}}
 
 {{define "body"}}
@@ -12,8 +12,7 @@
 <br>
 <h2>Articles</h2>
 
-<button onclick="testAPI()">Query API</button>
-<button onclick="addToList()">Add to List</button>
+<button onclick="loadArticles()">Query API</button>
 <input type="text" id="article_search" class="article_search" onkeyup="filterArticles()" placeholder="Search for names.." title="Type in a name">
 <div id="ArticleDiv"></div>
 
