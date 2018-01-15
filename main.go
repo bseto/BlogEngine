@@ -18,6 +18,9 @@ type Article struct {
 	CreateDate string `json:"create_date"`
 }
 
+type ListYMLStruct struct {
+	List []YMLStruct
+}
 type YMLStruct struct {
 	Title      string `yaml:"title"`
 	Path       string `yaml:"path"`

@@ -5,10 +5,22 @@ import (
 	"github.com/bseto/BlogEngine/logger"
 	"github.com/gorilla/mux"
 	"gopkg.in/yaml.v2"
+	"io/ioutil"
 	"net/http"
 )
 
 func ListArticles(w http.ResponseWriter, req *http.Request) {
+	ymlFile, err := ioutil.ReadFile("./articles/articles.yml")
+
+	var listStruct ListYMLStruct
+	err = yaml.Unmarshal(ymlFile, &listStruct)
+	if err != nil {
+		logger.Error(err)
+		return
+	}
+
+	logger.Log("ymlStruct is: %v", listStruct)
+
 	logger.Log("List Articles was Called")
 	article := []Article{
 		Article{Title: "TestTitle1", CreateDate: "2018-01-14"},
