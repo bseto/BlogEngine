@@ -1,0 +1,23 @@
+= GPU Passthrough on Ubuntu 17.04
+
+== Build Details
+CPU: Ryzen 7, 1700
+GPU (VM Passthrough): Nvidia GTX 1070
+Motherboard: ASUS Strix B350
+OS: Ubuntu 17.04
+Kernel: Originally, 4.10.0. npt=0 bug fix, 4.13.7+ 
+
+There are many articles on the internet that go over detailed steps on how to set up GPU passthrough so I will not repeat steps from those articles (Links below).
+However, in this blog, I will describe problems I encountered during my set up, and the fixes for them.
+
+Additional to the problems I encountered, the main focus of this blog will be the performance aspects of VM versus the baremetal setup, and what my overclocks on the CPU,
+System Memory (RAM), and GPU overclocks do to affect benchmark and game scores
+
+
+//Adding a USB Host Device 
+https://bugs.launchpad.net/ubuntu/+source/libvirt/+bug/1552241
+//Merged to lubuntu as of last week
+https://bugs.launchpad.net/ubuntu/+source/libvirt/+bug/1686324
+
+//Bridging network
+https://askubuntu.com/questions/62027/how-do-i-bridge-network-interfaces

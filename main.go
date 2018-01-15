@@ -19,7 +19,7 @@ type Article struct {
 }
 
 type ListYMLStruct struct {
-	List []YMLStruct
+	List []YMLStruct `yaml:"articles"`
 }
 type YMLStruct struct {
 	Title      string `yaml:"title"`

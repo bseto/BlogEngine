@@ -9,31 +9,37 @@ import (
 	"net/http"
 )
 
-func ListArticles(w http.ResponseWriter, req *http.Request) {
+func readYML() (ListYMLStruct, error) {
 	ymlFile, err := ioutil.ReadFile("./articles/articles.yml")
 
 	var listStruct ListYMLStruct
 	err = yaml.Unmarshal(ymlFile, &listStruct)
 	if err != nil {
 		logger.Error(err)
-		return
+		return listStruct, err
 	}
 
 	logger.Log("ymlStruct is: %v", listStruct)
+	return listStruct, nil
+}
 
-	logger.Log("List Articles was Called")
-	article := []Article{
-		Article{Title: "TestTitle1", CreateDate: "2018-01-14"},
-		Article{Title: "TestTitle2", CreateDate: "2018-01-15"},
+func ListArticles(w http.ResponseWriter, req *http.Request) {
+	articlesYML, err := readYML()
+	if err != nil {
+		logger.Error(err)
+		return
 	}
-	json, err := json.Marshal(article)
+	var articles []Article
+	for _, articleDetails := range articlesYML.List {
+		articles = append(articles, Article{Title: articleDetails.Title, CreateDate: articleDetails.CreateDate})
+	}
+	json, err := json.Marshal(articles)
 	if err != nil {
 		logger.Error(err)
 		return
 	}
 	w.Header().Set("Content-Type", "application/json")
 	w.Write(json)
-	logger.Log(string(json))
 }
 
 func GetArticle(w http.ResponseWriter, req *http.Request) {
