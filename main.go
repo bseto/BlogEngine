@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/bseto/BlogEngine/logger"
+	"github.com/gorilla/mux"
 	"html/template"
 	"net/http"
 	"path/filepath"
@@ -55,12 +56,15 @@ func main() {
 	fs := http.FileServer(http.Dir("./resources"))
 	http.Handle("/resources/", http.StripPrefix("/resources/", fs))
 
-	http.HandleFunc("/api/list_articles", ListArticles)
+	r := mux.NewRouter()
+	r.HandleFunc("/", Home)
+	r.HandleFunc("/articles", Articles)
+	r.HandleFunc("/playground", Playground)
+	r.HandleFunc("/home", Home)
+	r.HandleFunc("/article/{article-title}", GetArticle)
+	r.HandleFunc("/api/list_articles", ListArticles)
 
-	http.HandleFunc("/articles", Articles)
-	http.HandleFunc("/playground", Playground)
-	http.HandleFunc("/home", Home)
-	http.HandleFunc("/", Home)
+	http.Handle("/", r)
 
 	logger.Log("Listening on 8000")
 	http.ListenAndServe(":8000", nil)

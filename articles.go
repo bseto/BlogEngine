@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"github.com/bseto/BlogEngine/logger"
+	"github.com/gorilla/mux"
 	"net/http"
 )
 
@@ -20,4 +21,9 @@ func ListArticles(w http.ResponseWriter, req *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	w.Write(json)
 	logger.Log(string(json))
+}
+
+func GetArticle(w http.ResponseWriter, req *http.Request) {
+	vars := mux.Vars(req)
+	logger.Log("URL was" + vars["article-title"])
 }

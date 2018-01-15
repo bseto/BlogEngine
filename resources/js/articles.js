@@ -8,7 +8,7 @@ var articleList = [];
 function updateList() {
     $('#ArticleDiv').append("<ul id='article_list' class='article_list'></ul>");
     for (cnt = 0; cnt < articleList.length; cnt++) {
-        $("#article_list").append("<li><a href='" + articleList[cnt].title + "'>"+articleList[cnt].create_date + " | " + articleList[cnt].title  + "</li>");
+        $("#article_list").append("<li><a href='article/" + articleList[cnt].title + "'>"+articleList[cnt].create_date + " | " + articleList[cnt].title  + "</li>");
     }
 }
 
@@ -44,15 +44,5 @@ function loadArticles() {
     xhttp.send();
 }
 
-$('*[data-href]').on("click",function(){
-  console.log($(this).data('data-href'));
-    console.log("hi");
-  window.location = $(this).data('data-href');
-  return false;
-});
-
-$("td > a").on("click",function(e){
-  e.stopPropagation();
-});
 
 loadArticles();
