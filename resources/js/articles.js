@@ -6,10 +6,19 @@ var articleList = [];
 //];
 
 function updateList() {
-    $('#ArticleDiv').append("<ul id='article_list' class='article_list'></ul>");
     for (cnt = 0; cnt < articleList.length; cnt++) {
-        $("#article_list").append("<li><a href='article/" + articleList[cnt].title + "'>"+articleList[cnt].create_date + " | " + articleList[cnt].title  + "</li>");
+        var row = $("<a/>").addClass('list-group-item');
+        row.attr('href', articleList[cnt].title);
+        var header = $("<h4/>").addClass('list-group-item-heading');
+        header.append(articleList[cnt].title);
+        var date = $("<p/>").addClass('list-group-item-text');
+        date.append(articleList[cnt].create_date);
+        row.append(header);
+        row.append(date);
+        $('#ArticleDiv').append(row);
     }
+    
+
 }
 
 function filterArticles() {

@@ -22,9 +22,10 @@ type ListYMLStruct struct {
 	List []YMLStruct `yaml:"articles"`
 }
 type YMLStruct struct {
-	Title      string `yaml:"title"`
-	Path       string `yaml:"path"`
-	CreateDate string `yaml:"create_date"`
+	Title      string   `yaml:"title"`
+	Path       string   `yaml:"path"`
+	CreateDate string   `yaml:"create_date"`
+	Tags       []string `yaml:"tags"`
 }
 
 func Home(w http.ResponseWriter, req *http.Request) {
