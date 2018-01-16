@@ -13,9 +13,11 @@ type GeneralPage struct {
 }
 
 type Article struct {
-	Title      string `json:"title"`
-	Body       string `json:"body, omitempty"`
-	CreateDate string `json:"create_date"`
+	Title      string   `json:"title"`
+	Path       string   `json:"path"`
+	Tags       []string `json:"tags, omitempty"`
+	Body       string   `json:"body, omitempty"`
+	CreateDate string   `json:"create_date"`
 }
 
 type ListYMLStruct struct {

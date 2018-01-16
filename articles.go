@@ -31,9 +31,15 @@ func ListArticles(w http.ResponseWriter, req *http.Request) {
 	}
 	var articles []Article
 	for _, articleDetails := range articlesYML.List {
-		articles = append(articles, Article{Title: articleDetails.Title, CreateDate: articleDetails.CreateDate})
+		tempArticle := Article{Title: articleDetails.Title,
+			CreateDate: articleDetails.CreateDate,
+			Path:       articleDetails.CreateDate,
+			Tags:       articleDetails.Tags}
+
+		articles = append(articles, tempArticle)
 	}
 	json, err := json.Marshal(articles)
+	logger.Log("sending json: %v\n", articles)
 	if err != nil {
 		logger.Error(err)
 		return
