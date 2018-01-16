@@ -8,7 +8,7 @@ var articleList = [];
 function updateList() {
     for (cnt = 0; cnt < articleList.length; cnt++) {
         var row = $("<a/>").addClass('list-group-item');
-        row.attr('href', articleList[cnt].title);
+        row.attr('href', "article/" + articleList[cnt].path);
         var header = $("<h3/>").addClass('list-group-item-heading');
         header.append(articleList[cnt].title);
         var date = $("<p/>").addClass('list-group-item-text');

@@ -7,6 +7,7 @@ import (
 	"gopkg.in/yaml.v2"
 	"io/ioutil"
 	"net/http"
+	"path"
 )
 
 func readYML() (ListYMLStruct, error) {
@@ -15,7 +16,7 @@ func readYML() (ListYMLStruct, error) {
 	var listStruct ListYMLStruct
 	err = yaml.Unmarshal(ymlFile, &listStruct)
 	if err != nil {
-		logger.Error(err)
+		logger.Error("Err: %v\n", err)
 		return listStruct, err
 	}
 
@@ -26,14 +27,14 @@ func readYML() (ListYMLStruct, error) {
 func ListArticles(w http.ResponseWriter, req *http.Request) {
 	articlesYML, err := readYML()
 	if err != nil {
-		logger.Error(err)
+		logger.Error("Err: %v\n", err)
 		return
 	}
 	var articles []Article
 	for _, articleDetails := range articlesYML.List {
 		tempArticle := Article{Title: articleDetails.Title,
 			CreateDate: articleDetails.CreateDate,
-			Path:       articleDetails.CreateDate,
+			Path:       articleDetails.Path,
 			Tags:       articleDetails.Tags}
 
 		articles = append(articles, tempArticle)
@@ -41,7 +42,7 @@ func ListArticles(w http.ResponseWriter, req *http.Request) {
 	json, err := json.Marshal(articles)
 	logger.Log("sending json: %v\n", articles)
 	if err != nil {
-		logger.Error(err)
+		logger.Error("Err: %v\n", err)
 		return
 	}
 	w.Header().Set("Content-Type", "application/json")
@@ -49,6 +50,18 @@ func ListArticles(w http.ResponseWriter, req *http.Request) {
 }
 
 func GetArticle(w http.ResponseWriter, req *http.Request) {
+	page := GeneralPage{ActiveTab: "Articles"}
 	vars := mux.Vars(req)
 	logger.Log("URL was" + vars["article-title"])
+	if val, ok := vars["article-title"]; ok {
+		_, err := ioutil.ReadFile(path.Join("/articles/", val+".html"))
+		if err != nil {
+			logger.Error("Err: %v\n", err)
+			RenderTemplate(w, "404.html", page)
+			return
+		}
+	} else {
+		logger.Error("There was no article-title provided")
+		RenderTemplate(w, "404.html", page)
+	}
 }
