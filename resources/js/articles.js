@@ -16,7 +16,10 @@ function updateList() {
 
         var tags = $("<p/>").addClass('list-group-item-heading');
         for (tagn = 0; tagn < articleList[cnt].tags.length; tagn++) {
-            tags.append(articleList[cnt].tags[tagn] + " ");
+            var span = $("<span/>").addClass('label label-primary')
+            span.append(articleList[cnt].tags[tagn]);
+            tags.append(span);
+            tags.append(" ");
         }
         row.append(header);
         row.append(tags);

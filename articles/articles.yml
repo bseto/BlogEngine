@@ -14,6 +14,9 @@ articles:
     path: "some-path"
     create_date: "2017-11-14"
     tags: 
+      - "terminal"
+      - "fighter"
+      - "game"
       - "bash"
       - "c++"
       - "cmake"
