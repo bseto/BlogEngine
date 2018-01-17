@@ -1,4 +1,5 @@
 = GPU Passthrough on Ubuntu 17.04
+:toc:
 
 == Build Details
 CPU: Ryzen 7, 1700
@@ -12,6 +13,7 @@ However, in this blog, I will describe problems I encountered during my set up, 
 
 Additional to the problems I encountered, the main focus of this blog will be the performance aspects of VM versus the baremetal setup, and what my overclocks on the CPU,
 System Memory (RAM), and GPU overclocks do to affect benchmark and game scores
+
 
 
 //Adding a USB Host Device 

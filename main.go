@@ -13,44 +13,56 @@ type GeneralPage struct {
 }
 
 type Article struct {
-	Title      string `json:"title"`
-	Body       string `json:"body, omitempty"`
-	CreateDate string `json:"create_date"`
+	Title      string   `json:"title"`
+	Path       string   `json:"path"`
+	Tags       []string `json:"tags, omitempty"`
+	Body       string   `json:"body, omitempty"`
+	CreateDate string   `json:"create_date"`
 }
 
 type ListYMLStruct struct {
 	List []YMLStruct `yaml:"articles"`
 }
 type YMLStruct struct {
-	Title      string `yaml:"title"`
-	Path       string `yaml:"path"`
-	CreateDate string `yaml:"create_date"`
+	Title      string   `yaml:"title"`
+	Path       string   `yaml:"path"`
+	CreateDate string   `yaml:"create_date"`
+	Tags       []string `yaml:"tags"`
 }
 
 func Home(w http.ResponseWriter, req *http.Request) {
 	page := GeneralPage{ActiveTab: "Home"}
 	logger.Log("Inside Home")
-	RenderTemplate(w, "home.html", page)
+	RenderTemplate(w, page,
+		filepath.Join("tmpl", "home.html"))
 }
 
 func Articles(w http.ResponseWriter, req *http.Request) {
 	page := GeneralPage{ActiveTab: "Articles"}
 	logger.Log("Inside List Articles")
-	RenderTemplate(w, "articles.html", page)
+	RenderTemplate(w, page,
+		filepath.Join("tmpl", "articles.html"))
 }
 
 func Playground(w http.ResponseWriter, req *http.Request) {
 	page := GeneralPage{ActiveTab: "Playground"}
 	logger.Log("Inside Playground")
-	RenderTemplate(w, "playground.html", page)
+	RenderTemplate(w, page,
+		filepath.Join("tmpl", "playground.html"))
 }
 
-func RenderTemplate(w http.ResponseWriter, tmplName string, p interface{}) {
-	logger.Log("Rendering template: " + tmplName)
+func RenderTemplate(w http.ResponseWriter, p interface{}, tmplName ...string) {
+	logger.Log("Rendering templates:%v ", tmplName)
 	layout := filepath.Join("tmpl", "layout.html")
-	fp := filepath.Join("tmpl", tmplName)
+	tmplName = append(tmplName, layout)
 
-	tmpl := template.Must(template.ParseFiles(fp, layout))
+	tmpl, err := template.ParseFiles(tmplName...)
+	if err != nil {
+		logger.Error("Could not parse all template files: %v", err)
+		//If err, then we will make tmpl 404
+		notFound := filepath.Join("tmpl", "404.html")
+		tmpl = template.Must(template.ParseFiles(layout, notFound))
+	}
 
 	if err := tmpl.ExecuteTemplate(w, "layout", p); err != nil {
 		logger.Log("Couldn't execute template %s : %s", tmpl, err)

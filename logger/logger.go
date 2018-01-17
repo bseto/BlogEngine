@@ -8,7 +8,7 @@ import (
 	"github.com/fatih/color"
 )
 
-func Error(err error) {
+func Error(message string, arguments ...interface{}) {
 	t := time.Now()
 	stamp := t.Format("2006-01-02 15:04:05.000")
 	funcName := findCaller()
@@ -19,8 +19,7 @@ func Error(err error) {
 	yellow("%s: ", funcName)
 
 	red := color.New(color.FgRed).PrintfFunc()
-	red("%s\n", err.Error())
-
+	red(message, arguments...)
 }
 
 func Log(message string, arguments ...interface{}) {

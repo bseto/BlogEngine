@@ -5,23 +5,44 @@
 <html>
     <head>
         <title>{{template "title" .}}</title>
-        <link href="/resources/stylesheets/default.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link href="/resources/stylesheets/default.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <meta name="viewport" content="initial-scale=1.0">
         {{template "head" .}}
         <meta charset="utf-8">
     </head>
     <body>
-        <ul class=menubar>
-            <li><a {{if eq .ActiveTab "Home"}} class="active" {{end}} href="/home">Home</a></li>
-            <li><a {{if eq .ActiveTab "Articles"}} class="active" {{end}} href="/articles">Articles</a></li>
-            <li><a {{if eq .ActiveTab "Playground"}} class="active" {{end}} href="/playground">Playground</a></li>
-            <li><a href="https://www.github.com/bseto" style="right: 0; position: absolute;">GitHub</a></li>
-        </ul>
+        <nav class="navbar navbar-inverse">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>                        
+              </button>
+              <a class="navbar-brand" href="/home">Byron Seto</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+              <ul class="nav navbar-nav">
+                <li{{if eq .ActiveTab "Articles"}} class="active" {{end}}> <a href="/articles">Articles</a></li>
+                <li{{if eq .ActiveTab "Playground"}} class="active" {{end}}> <a href="/playground">Playground</a></li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="https://www.github.com/bseto"><span class="icon-g-github icon-g-white"></span>GitHub</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
 
         <div class="main">
             {{template "body" .}}
         </div>
+    <footer class="container-fluid text-center">
+      <p>Icons provided by GLYPHICONS.com</p>
+    </footer>
     </body>
 
 </html>
