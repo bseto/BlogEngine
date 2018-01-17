@@ -58,6 +58,7 @@ func RenderTemplate(w http.ResponseWriter, p interface{}, tmplName ...string) {
 
 	tmpl, err := template.ParseFiles(tmplName...)
 	if err != nil {
+		logger.Error("Could not parse all template files: %v", err)
 		//If err, then we will make tmpl 404
 		notFound := filepath.Join("tmpl", "404.html")
 		tmpl = template.Must(template.ParseFiles(layout, notFound))
