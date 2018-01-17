@@ -1,14 +1,3 @@
 = BlogEngine
 
-This will be a blog engine powered by Golang as a backend, and Ember.js as the front end client.
-
-== Structure
-
-=== Golang
-
-The golang backend will be a simple go server that manages `/api/` routes that the ember.js front end can communicate with.
-The golang backend will also serve the ember.js through the `/` that will route to a directory of .html files
-
-=== Ember
-
-TBD
+This will be a blog engine powered by Golang as a backend, and boostrap for front end libraries
