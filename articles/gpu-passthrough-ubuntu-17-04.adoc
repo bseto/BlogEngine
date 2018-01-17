@@ -1,6 +1,11 @@
 = GPU Passthrough on Ubuntu 17.04
 :toc:
 
+.Ubuntu 17.04 with Windows 10 running Heaven Benchmark
+[#gpupassthrough]
+[caption="Figure 1: "]
+image::/resources/images/GPUPassthroughUbuntu-thumb-mini.png[]
+
 == Introduction
 
 I have always wanted to use Ubuntu/Linux as the host for my computer. 
