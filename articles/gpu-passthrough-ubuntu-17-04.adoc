@@ -1,25 +1,79 @@
 = GPU Passthrough on Ubuntu 17.04
 :toc:
 
-== Build Details
-CPU: Ryzen 7, 1700
-GPU (VM Passthrough): Nvidia GTX 1070
-Motherboard: ASUS Strix B350
-OS: Ubuntu 17.04
-Kernel: Originally, 4.10.0. npt=0 bug fix, 4.13.7+ 
+== Introduction
 
-There are many articles on the internet that go over detailed steps on how to set up GPU passthrough so I will not repeat steps from those articles (Links below).
-However, in this blog, I will describe problems I encountered during my set up, and the fixes for them.
+I have always wanted to use Ubuntu/Linux as the host for my computer. 
+So, naturally, I started off with a dualboot where I would have three partitions on my hard drive.
+Two partitions dedicated to Ubuntu and Windows respectively, and the third for a shared 'Data' drive.
 
-Additional to the problems I encountered, the main focus of this blog will be the performance aspects of VM versus the baremetal setup, and what my overclocks on the CPU,
-System Memory (RAM), and GPU overclocks do to affect benchmark and game scores
+The annoying thing about this setup was that I'd have to reboot my computer any time I wanted to switch from coding to gaming.
+Although the overhead of this reboot seems small, ideally, I wanted to be able to code on my side projects while waiting in game lobbies with my friends.
+I didn't know of a better or different setup that was possible until I saw https://www.youtube.com/watch?v=LuJYMCbIbPk[this] video from Linus Tech Tips, 
+which then spun off and I started googling for linux + windows builds, which I eventually found https://davidyat.es/2016/09/08/gpu-passthrough/[here].
+
+There are already many existing articles online that detail the instructions on how to setup GPU passthrough with KVM on Linux. 
+However, something I always found lacking in many articles is a good overview of instructions. 
+They typically involve jumping straight into commands without really knowing what the overall goal of the command, or step is.
+Hopefully this guide can simplify the delivery, so you don't end up blindly copying commands until your VM boots up with a GPU passthrough haha.
+
+
+== Quick References
+
+I didn't want to put this section at the bottom of my article because I really do owe these guys all the credit.
+
+=== Blog Posts
+https://davidyat.es/2016/09/08/gpu-passthrough/[davidyat.es: GPU passthrough: gaming on Windows on Linux] +
+https://ycnrg.org/vga-passthrough-with-ovmf-vfio/[ycnrg.org: VGA Passthrough with OVMF+VFIO on Ubuntu 16.04]
+
+=== Additional Resources
+https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF[wiki.archlinux.org]
+
+
+== My Build Details
+
+[cols="1,5"]
+.Hardware
+|===
+|CPU
+|Ryzen 7, 1700
+
+|GPU (Passthrough)
+|Nvidia GTX 1070
+
+|GPU (Host)
+|AMD 7770
+
+|Motherboard
+|ASUS Strix B350
+
+|OS
+|Ubuntu 17.04
+
+|Kernel Version
+|4.13.7+ npt=0 bug fix
+|===
+
+== Overview
+
+This section will hopefully simplify the entire setup.
+If you find other blog posts kind of daunting, this section is probably a good place to start :).
+
+Please note, this guide will be tailored to people with a similar setup to mine. +
+I am running a first generation Ryzen 7 CPU, meaning it does not come with integrated graphics. 
+What this means is it forces me to use a dedicated GPU for both my host and guest machine.
+
+=== What Do We Need?
+
+
+
 
 
 
 //Adding a USB Host Device 
-https://bugs.launchpad.net/ubuntu/+source/libvirt/+bug/1552241
+//https://bugs.launchpad.net/ubuntu/+source/libvirt/+bug/1552241
 //Merged to lubuntu as of last week
-https://bugs.launchpad.net/ubuntu/+source/libvirt/+bug/1686324
+//https://bugs.launchpad.net/ubuntu/+source/libvirt/+bug/1686324
 
 //Bridging network
-https://askubuntu.com/questions/62027/how-do-i-bridge-network-interfaces
+//https://askubuntu.com/questions/62027/how-do-i-bridge-network-interfaces
