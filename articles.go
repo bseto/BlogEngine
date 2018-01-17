@@ -7,7 +7,7 @@ import (
 	"gopkg.in/yaml.v2"
 	"io/ioutil"
 	"net/http"
-	"path"
+	"path/filepath"
 )
 
 func readYML() (ListYMLStruct, error) {
@@ -54,16 +54,11 @@ func GetArticle(w http.ResponseWriter, req *http.Request) {
 	vars := mux.Vars(req)
 	logger.Log("URL was" + vars["article-title"])
 	if val, ok := vars["article-title"]; ok {
-		data, err := ioutil.ReadFile(path.Join("/articles/", val+".html"))
-		if err != nil {
-			logger.Error("Err: %v\n", err)
-			RenderTemplate(w, "404.html", page)
-			return
-		}
-		page.Body = data
-		RenderTemplate(w, "article.html", page)
+		RenderTemplate(w, page,
+			filepath.Join("tmpl", "article.html"),
+			filepath.Join("articles", val+".html"))
 	} else {
 		logger.Error("There was no article-title provided")
-		RenderTemplate(w, "404.html", page)
+		RenderTemplate(w, page, filepath.Join("tmpl", "404.html"))
 	}
 }
