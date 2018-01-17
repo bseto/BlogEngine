@@ -1,9 +1,4 @@
 var articleList = [];
-//var articleList = [
-    //{ FirstName: 'Byron', LastName: 'Seto' },
-    //{ FirstName: 'Hi', LastName: 'Test' },
-    //{ FirstName: 'Another', LastName: 'Test' }
-//];
 
 function updateList() {
     for (cnt = 0; cnt < articleList.length; cnt++) {
