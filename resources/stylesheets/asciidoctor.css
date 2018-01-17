@@ -26,21 +26,20 @@
  body{
     margin:0
 }
-/*a{
+a{
     background:transparent
 }
-*/
-/*a:focus{
+
+a:focus{
     outline:thin dotted
 }
-*/
-/*a:active,a:hover{
+
+a:active,a:hover{
     outline:0
 }
-*/
- h1{
-    /*font-size:2em;
-    */
+
+h1{
+    font-size:2em;
     margin:.67em 0
 }
  abbr[title]{
@@ -156,31 +155,30 @@
     font-size:100%
 }
 */
- body{
-    background:#fff;
-    color:rgba(0,0,0,.8);
-    padding:0;
-    margin:0;
-    /*font-family:"Noto Serif","DejaVu Serif",serif;
-    font-weight:400;
-    font-style:normal*/
-    ;
-    line-height:1;
-    position:relative;
-    cursor:auto
-}
-/*a:hover{
+/*body{*/
+    /*background:#fff;*/
+    /*color:rgba(0,0,0,.8);*/
+    /*padding:0;*/
+    /*margin:0;*/
+    /*font-family:"Noto Serif","DejaVu Serif",serif;*/
+    /*font-weight:400;*/
+    /*font-style:normal;*/
+    /*line-height:1;*/
+    /*position:relative;*/
+    /*cursor:auto*/
+/*}*/
+a:hover{
     cursor:pointer
 }
-*/
- img,object,embed{
+
+img,object,embed{
     max-width:100%;
     height:auto
 }
- object,embed{
+object,embed{
     height:100%
 }
- img{
+img{
     -ms-interpolation-mode:bicubic
 }
  .left{
@@ -253,11 +251,10 @@
  a img{
     border:none
 }
- p{
+p{
     font-family:inherit;
     font-weight:400;
-    /*font-size:1em*/
-    ;
+    font-size:1em;
     line-height:1.6;
     margin-bottom:1.25em;
     text-rendering:optimizeLegibility
@@ -401,22 +398,22 @@
     h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{
         line-height:1.2
     }
-    /*h1{
+    h1{
         font-size:2.75em
     }
-    */
-    /*h2{
+    
+    h2{
         font-size:2.3125em
     }
-    */
+    
      h3,#toctitle,.sidebarblock>.content>.title{
         font-size:1.6875em
     }
-    /*h4{
+    h4{
         font-size:1.4375em
     }
 }
-*/
+
  table{
     background:#fff;
     margin-bottom:1.25em;
@@ -786,7 +783,7 @@
  .admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{
     text-rendering:optimizeLegibility;
     text-align:left;
-    /*font-family:"Noto Serif","DejaVu Serif",serif;
+    font-family:"Noto Serif","DejaVu Serif",serif;
     font-size:1rem;
     font-style:italic*/
 }

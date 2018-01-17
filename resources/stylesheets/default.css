@@ -2,6 +2,7 @@ html, body {
     font-family: 'Raleway', sans-serif;
     height: 100%;
     letter-spacing: .03em;
+    font-size:100%
 }
 /*-------------------*/
 /*Menu Bar bootstrapped*/
