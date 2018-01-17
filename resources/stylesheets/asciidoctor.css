@@ -6,7 +6,7 @@ audio,canvas,video{display:inline-block}
 audio:not([controls]){display:none;height:0}
 [hidden],template{display:none}
 script{display:none!important}
-/*html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}*/
+html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
 body{margin:0}
 /*a{background:transparent}*/
 /*a:focus{outline:thin dotted}*/

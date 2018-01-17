@@ -1,4 +1,5 @@
 = GPU Passthrough on Ubuntu 17.04
+:toc:
 
 == Build Details
 CPU: Ryzen 7, 1700
