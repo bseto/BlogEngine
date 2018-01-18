@@ -1,3 +1,6 @@
 = Terminal Fighter
 
-Sorry, nothing here yet :(
+Sorry, I haven't written anything about it yet :(.
+
+Instead, You can check out the github link: https://github.com/JeLLyNinjas/TerminalFighter[JeLLyNinjas/TerminalFighter]
+
