@@ -116,6 +116,23 @@ For example, some of your USB controllers and Ethernet controller may be grouped
 So passing any of the `ID`'s within any of these groups, would require you to pass everything else in the group into the VM. +
 Ideally, you'll be happy if your GPU is in it's own group by itself. +
 
+. *pci-stub the GPU* +
+We need to setup `pci-stub` to claim the GPU device at boot. pci-stub is pretty much a dummy driver. +
+We want to avoid the kernel grabbing onto the GPU, so we can passthrough the GPU later. (Blacklisting the nvidia/amd driver will not work). +
+
+. *Network* +
+We want to setup a bridged network. This will allow the VM to have it's own IP. Important if we want to use _Synergy_ to control our VM. +
+
+. *Setting up the VM* +
+We will setup the VM (which is similar to VirtualBox's setup if you've ever used it). 
+There will be no GPU passthrough on this step. It will be using Video Spice, which basically gives you a window to view +
+the VM. 
+
+. *Passthrough setup* +
+After the VM is setup, we will finally passthrough the GPU to the VM. If it works - Hurrah!
+
+Pretty simple if we really break it down like this. 
+Most of the steps we do is just to make sure that our system is capable of performing the GPU passthrough.
 
 === Prerequisites
 
