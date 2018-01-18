@@ -8,18 +8,28 @@ image::/resources/images/GPUPassthroughUbuntu-thumb-mini.png[]
 
 == Introduction
 
-I have always wanted to use Ubuntu/Linux as the host for my computer. 
-So, naturally, I started off with a dualboot where I would have three partitions on my hard drive.
-Two partitions dedicated to Ubuntu and Windows respectively, and the third for a shared 'Data' drive.
+I first started using Linux through VirtualBox on my Windows laptop - and I loved it.
+However, as time went by, I noticed that the performance of the VM was not perfect.
+Little graphical hiccups here and there tainted the otherwise flawless and open experience.
+I eventually decided to abandoned the safety net of Windows, and started reading articles online on how to dualboot.
+At the time, dualbooting was very daunting, I was worried that my laptop would forever lose the ability to power on,
+or worse - that I'd spend all the time just to give up and go back to windows. 
+Thankfully, after a couple days of having a bricked computer, and thinking that I had ruined my computer (haha), I came out of the experience 
+proud to say that I had successfully dualbooted my laptop.
 
-The annoying thing about this setup was that I'd have to reboot my computer any time I wanted to switch from coding to gaming.
+I eventually found that the annoying thing about this setup was that I'd have to reboot my computer any time I wanted to switch from coding to gaming.
 Although the overhead of this reboot seems small, ideally, I wanted to be able to code on my side projects while waiting in game lobbies with my friends.
 I didn't know of a better or different setup that was possible until I saw https://www.youtube.com/watch?v=LuJYMCbIbPk[this] video from Linus Tech Tips, 
 which then spun off and I started googling for linux + windows builds, which I eventually found https://davidyat.es/2016/09/08/gpu-passthrough/[here].
 
+Sadly, I was in school so I couldn't be out of my laptop for a few days. And for some reason after reading these articles,
+I had the notion that I'd have to run a hypervisor (maybe because Linus had used unRAID), which wasn't all that viable on a laptop.
+It wasn't until I had prepared myself for the project a whole year later (August of 2017), that I realized I could have just ran Ubuntu
+with a VM. 
+
 There are already many existing articles online that detail the instructions on how to setup GPU passthrough with KVM on Linux. 
-However, something I always found lacking in many articles is a good overview of instructions. 
-They typically involve jumping straight into commands without really knowing what the overall goal of the command, or step is.
+However, something I always found lacking in many articles is a good overview of instructions (which is why I thought I needed to run a hypervisor). 
+The articles typically introduced requirents and then quickly jumped you straight into commands without really letting you know what the goal is.
 Hopefully this guide can simplify the delivery, so you don't end up blindly copying commands until your VM boots up with a GPU passthrough haha.
 
 
@@ -69,8 +79,6 @@ I am running a first generation Ryzen 7 CPU, meaning it does not come with integ
 What this means is it forces me to use a dedicated GPU for both my host and guest machine.
 
 === What Do We Need?
-
-
 
 
 
