@@ -12,7 +12,7 @@ articles:
       - "windows"
   - title: "Terminal Fighter"
     path: "terminal-fighter"
-    create_date: "2017-11-14"
+    create_date: "---------"
     tags: 
       - "terminal"
       - "fighter"
@@ -26,7 +26,7 @@ articles:
       - "ubuntu"
   - title: "SolarCar Backup Camera"
     path: "solarcar-backup-camera"
-    create_date: "2017-10-16"
+    create_date: "---------"
     tags: 
       - "bash"
       - "c++"
