@@ -76,7 +76,7 @@ If you find other blog posts kind of daunting, this section is probably a good p
 
 Please note, this guide will be tailored to people with a similar setup to mine. +
 I am running a first generation Ryzen 7 CPU, meaning it does not come with integrated graphics. 
-What this means is it forces me to use a dedicated GPU for both my host and guest machine.
+Without integrated graphics, we will have to run a dedicated GPU for the host OS, and another dedicated GPU for the guest machine.
 
 Some basic questions to get out of the way:
 
