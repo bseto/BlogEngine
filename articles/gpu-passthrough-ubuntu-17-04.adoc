@@ -4,7 +4,7 @@
 .Ubuntu 17.04 with Windows 10 running Heaven Benchmark
 [#gpupassthrough]
 [caption="Figure 1: "]
-image::/resources/images/GPUPassthroughUbuntu-thumb-mini.png[]
+image::/resources/images/gpu_passthrough/gpu_passthrough_ubuntu_thumb.png[]
 
 == Introduction
 
@@ -60,7 +60,7 @@ https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF[wiki.archlinux.org
 |AMD 7770
 
 |Motherboard
-|ASUS Strix B350
+|ASUS ROG Strix B350-F Gaming
 
 |OS
 |Ubuntu 17.04
@@ -78,9 +78,64 @@ Please note, this guide will be tailored to people with a similar setup to mine.
 I am running a first generation Ryzen 7 CPU, meaning it does not come with integrated graphics. 
 What this means is it forces me to use a dedicated GPU for both my host and guest machine.
 
-=== What Do We Need?
+Some basic questions to get out of the way:
+
+What is _KVM_?::
+KVM stands for _Kernel Virtual Machine_. It is a loadable kernel module that will allow us to virtualize Windows. +
+More details https://www.linux-kvm.org/page/Main_Page[here]. +
+
+What is _QEMU_?::
+QEMU is an open source emulator and virtualizer. It can run off of the Xen hypervisor or KVM kernel module. +
+In our case, we will be using it with the KVM kernel module. +
+
+How are we going to be using QEMU/KVM?::
+After we setup the system to make it GPU passthrough ready, we will setup the virtual machine using the QEMU/KVM's `virt-manager` GUI. +
+However, there are some tweaks we will need to perform on the configuration file (which uses the xml schema) via the command `virsh`.
 
 
+=== How do we start?
+
+
+==== End Goal
+Assuming we have all of the pre-requisites (detailed in the next section). 
+I will be explaining what our end result is, and how we get there with some high level instructions.
+
+If we do this properly, we will have Ubuntu 17.04 running baremetal on our computer, and we will also have a Windows 10 VM
+running on QEMU/KVM with GPU passthrough.
+
+==== High Level Steps
+. *Ready our system for virtualization and GPU passthrough* + 
+This involves checking that we meet the prerequisites, and things like having booted up with virtualization enabled in the bios. +
+
+. *Determining the PCI ID of the GPU we want to passthrough to the VM.* +
+The GPU will have an `ID` that specifies it in the system. We will need this `ID` later so we can specify it in the passthrough for QEMU's `virt-manager` GUI. +
+
+. *Determining if the PCI ID is isolated in the IOMMU group* +
+Although each of these PCI `ID`'s specify the part in the system. Many things are typically _grouped_ together in the system. +
+For example, some of your USB controllers and Ethernet controller may be grouped together. +
+So passing any of the `ID`'s within any of these groups, would require you to pass everything else in the group into the VM. +
+Ideally, you'll be happy if your GPU is in it's own group by itself. +
+
+
+=== Prerequisites
+
+Assuming you are using the same hardware as I, then you won't have to read this section.
+
+Your CPU has to support virtualization::
+* Intel VT-x and Intel VT-d
+* AMD-Vi
+
+Motherboard must support IOMMU::
+* Desktop
+
+GPU that supports UEFI::
+* According to https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF#Prerequisites[this], all GPU's from 2012 and later should support this.
+
+=== Recommendations
+
+* If you are running Ryzen, you will need two GPU's - preferrably one Nvidia, and one AMD (This will make things much easier).
+* Ubuntu or your Linux is installed to boot via UEFI.
+* The graphics card you want to passthrough to windows should not be the one used during boot. For example, I read that my 
 
 
 //Adding a USB Host Device 
