@@ -11,7 +11,7 @@ articles:
       - "ubuntu"
       - "windows"
   - title: "Terminal Fighter"
-    path: "some-path"
+    path: "terminal-fighter"
     create_date: "2017-11-14"
     tags: 
       - "terminal"
@@ -25,7 +25,7 @@ articles:
       - "tech"
       - "ubuntu"
   - title: "SolarCar Backup Camera"
-    path: "some-other-path"
+    path: "solarcar-backup-camera"
     create_date: "2017-10-16"
     tags: 
       - "bash"

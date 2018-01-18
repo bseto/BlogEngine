@@ -125,7 +125,7 @@ We want to setup a bridged network. This will allow the VM to have it's own IP. 
 
 . *Setting up the VM* +
 We will setup the VM (which is similar to VirtualBox's setup if you've ever used it). 
-There will be no GPU passthrough on this step. It will be using Video Spice, which basically gives you a window to view +
+There will be no GPU passthrough on this step. It will be using Video Spice, which basically gives you a window to view 
 the VM. 
 
 . *Passthrough setup* +
@@ -151,9 +151,32 @@ GPU that supports UEFI::
 === Recommendations
 
 * If you are running Ryzen, you will need two GPU's - preferrably one Nvidia, and one AMD (This will make things much easier).
-* Ubuntu or your Linux is installed to boot via UEFI.
-* The graphics card you want to passthrough to windows should not be the one used during boot. For example, I read that my 
+* You will want your Linux installed and be booting via UEFI.
+* The graphics card you want to passthrough to windows should not be the one used during boot. 
+For example, my motherboard has 3 PCIe x16 slots. My slots oriented from top to bottom are 1, 2, and 3. Any GPU I put on slot 1 will always be
+used on boot up. So knowing this, I cannot put the card that I want to passthrough to my Windows VM on slot 1, even though it's 
+the only full x16 slot. This means I have no choice but to put the GPU I want to passthrough on a different slot, even though I may only get x4 lanes.
 
+== Detailed Steps
+
+Before you start following the instructions here, please be sure to read the pre-requisites.
+Unlike dualbooting, there _shouldn't_ be anything here that can brick your computer.
+However, please be advised that you are fully responsible for your own system. I, and any blog/wiki post
+that I have linked on this article will not take any responsibility for any damage that occurs to your system.
+
+=== Readying Our System 
+
+=== Determining the PCI ID of our GPU
+
+=== Determining if the PCI ID is isolated in the IOMMU group
+
+=== pci-stub the GPU
+
+=== Network
+
+=== Setting Up The VM
+
+=== Passthrough Setup
 
 //Adding a USB Host Device 
 //https://bugs.launchpad.net/ubuntu/+source/libvirt/+bug/1552241
