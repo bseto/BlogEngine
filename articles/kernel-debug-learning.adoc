@@ -1,0 +1,5 @@
+= Learning How to Kernel Debug
+
+One of my aspirations in life is to someday make a pull request to the linux kernel.
+
+http://www.alexlambert.com/2017/12/18/kernel-debugging-for-newbies.html[Alex Lambert Kernel Debugging for Newbies]

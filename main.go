@@ -80,7 +80,7 @@ func main() {
 	r := mux.NewRouter()
 	r.HandleFunc("/", Home)
 	r.HandleFunc("/articles", Articles)
-	r.HandleFunc("/playground", Playground)
+	//r.HandleFunc("/playground", Playground)
 	r.HandleFunc("/home", Home)
 	r.HandleFunc("/article/{article-title}", GetArticle)
 	r.HandleFunc("/api/list_articles", ListArticles)
