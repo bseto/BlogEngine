@@ -6,7 +6,7 @@
     color: white;
     background-image: url('/resources/images/main-page-banner.jpg');
     background-attachment: fixed;
-    background-position: center;
+    /*background-position: center;*/
     background-repeat: no-repeat;
     background-size: 100%;
 }
