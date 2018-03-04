@@ -1,0 +1,3 @@
+= Terminal Fighter
+
+I will be documenting things I go through to get 1-1 gamespace

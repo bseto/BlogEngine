@@ -157,27 +157,6 @@ For example, my motherboard has 3 PCIe x16 slots. My slots oriented from top to 
 used on boot up. So knowing this, I cannot put the card that I want to passthrough to my Windows VM on slot 1, even though it's 
 the only full x16 slot. This means I have no choice but to put the GPU I want to passthrough on a different slot, even though I may only get x4 lanes.
 
-== Detailed Steps
-
-Before you start following the instructions here, please be sure to read the pre-requisites.
-Unlike dualbooting, there _shouldn't_ be anything here that can brick your computer.
-However, please be advised that you are fully responsible for your own system. I, and any blog/wiki post
-that I have linked on this article will not take any responsibility for any damage that occurs to your system.
-
-=== Readying Our System 
-
-=== Determining the PCI ID of our GPU
-
-=== Determining if the PCI ID is isolated in the IOMMU group
-
-=== pci-stub the GPU
-
-=== Network
-
-=== Setting Up The VM
-
-=== Passthrough Setup
-
 //Adding a USB Host Device 
 //https://bugs.launchpad.net/ubuntu/+source/libvirt/+bug/1552241
 //Merged to lubuntu as of last week
